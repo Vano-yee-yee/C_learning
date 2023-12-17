@@ -56,17 +56,20 @@ unsigned char char_to_digit(unsigned char c)
 }
 void start_game(const unsigned char dig_)
 {
-	if(dig_>10)
+	if(dig_>10 || dig_==0)
 		return;
 	unsigned char guess_num[dig_];
 	make_guess_num(guess_num, dig_);
-	printf("Computer make a number with %d digits. Try to guess\n", dig_);
+	printf("Computer make a number with %u digits. Try to guess\n", dig_);
+
 	while(1)
 	{
 		unsigned char num[dig_];
 		scanf("%s", num);
-		unsigned char cows=0;
+
 		unsigned char bulls=0;
+		unsigned char cows=0;
+
 		unsigned char i=0;
 		while(i<dig_)
 		{
