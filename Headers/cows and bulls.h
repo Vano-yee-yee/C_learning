@@ -9,13 +9,11 @@
 void make_guess_num(unsigned char* res_, const unsigned char dig_);
 
 /**
-* @brief Прверяет число, полученное с потока ввода
-* @param num_: число строка
-* @param dig_: количество цифр в числе
-* @return 1: число с данным кол-ом цифр
-* 0: иначе
+* @brief Превращает символ цифры в число
+* @param c: символ
+* @return число
 */
-unsigned char check_num(const unsigned char* num_, const unsigned char dig_);
+unsigned char char_to_digit(unsigned char c);
 
 /**
 * @brief Начинает игру "Быки и коровы"
