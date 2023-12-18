@@ -60,7 +60,7 @@ void start_game(const unsigned char dig_)
 		return;
 	unsigned char guess_num[dig_];
 	make_guess_num(guess_num, dig_);
-	printf("Computer make a number with %u digits. Try to guess\n", dig_);
+	printf("Computer make a number with %u different digits. Try to guess\n", dig_);
 
 	while(1)
 	{

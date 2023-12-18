@@ -1,5 +1,4 @@
 #include "str_func.h"
-#include <stdlib.h>
 
 unsigned int my_strlen(const char* str_)
 {
@@ -41,9 +40,9 @@ int my_strcmp(const char* str1_, const char* str2_)
 	return *str1_-*str2_;
 }
 char* my_strstr(const char* str1_, const char* sub_str_)
-{
+{	
 	unsigned int i=0;
-	while(*sub_str_!='\0')
+	while(!(*sub_str_=='\0' || *str1_=='\0'))
 	{
 		if(*str1_==*sub_str_)
 		{
@@ -51,13 +50,13 @@ char* my_strstr(const char* str1_, const char* sub_str_)
 			sub_str_+=1;
 			str1_+=1;
 		}
-		else if(i)
+		else
 		{
 			sub_str_-=i;
-			i = 0;
-		}
-		else
+			str1_-=i;
+			i=0;
 			str1_+=1;
+		}
 	}
 	sub_str_-=i;
 	if (i<my_strlen(sub_str_))
