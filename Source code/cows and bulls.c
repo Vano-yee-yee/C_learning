@@ -22,13 +22,13 @@ void make_guess_num(unsigned char* res_, const unsigned char dig_)
 		}
 	}
 }
-unsigned char char_to_digit(unsigned char c)
+unsigned char char_to_digit(const char c_)
 {
 //For standart encoding(s)
 //	return c-'0';
 
 //For other encodings
-	switch(c)
+	switch(c_)
 	{
 		case '0':
 			return 0;
@@ -56,7 +56,8 @@ unsigned char char_to_digit(unsigned char c)
 }
 void start_game(const unsigned char dig_)
 {
-	if(dig_>10 || dig_==0)
+	if(dig_>10
+		|| dig_==0)
 		return;
 	unsigned char guess_num[dig_];
 	make_guess_num(guess_num, dig_);
@@ -95,7 +96,8 @@ void start_game(const unsigned char dig_)
 			i+=1;
 		}
 		printf("Bulls=%u, cows=%u\n", bulls, cows);
-		if(bulls==dig_ && cows==0)
+		if(bulls==dig_
+			&& cows==0)
 			return;
 	}
 }

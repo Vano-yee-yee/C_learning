@@ -42,7 +42,8 @@ int my_strcmp(const char* str1_, const char* str2_)
 char* my_strstr(const char* str1_, const char* sub_str_)
 {	
 	unsigned int i=0;
-	while(!(*sub_str_=='\0' || *str1_=='\0'))
+	while(*sub_str_!='\0'
+		&& *str1_!='\0')
 	{
 		if(*str1_==*sub_str_)
 		{
@@ -59,24 +60,33 @@ char* my_strstr(const char* str1_, const char* sub_str_)
 		}
 	}
 	sub_str_-=i;
-	if (i<my_strlen(sub_str_))
+	if(i<my_strlen(sub_str_))
 		return NULL;
 	str1_-=i;
 	return str1_;
 }
-char* my_strcpy(char* dest_, const char* copy)
+char* my_strcpy(char* dest_, const char* copy_)
 {
 	unsigned int i=0;
-	while (*copy!='\0')
+	while(*copy_!='\0')
 	{
-		*dest_=*copy;
+		*dest_=*copy_;
 		dest_+=1;
-		copy+=1;
+		copy_+=1;
 		i+=1;
 	}
 	dest_-=i;
 	return dest_;
 }
-int my_fgetline(char* line_, const FILE* file_)
+unsigned int my_fgetline(char* line_, const FILE* file_)
 {
+	unsigned int i=0;
+	while(*line_!='\0'
+		&& (*line_=fgetc(file_))!='\n')
+	{
+		line_+=1;
+		i+=1;
+	}
+	*line_='\0';
+	return i;
 }

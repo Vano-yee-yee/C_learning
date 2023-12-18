@@ -4,6 +4,7 @@
 * @brief Находит сумму чисел, кратных числам
 * @param lim_: верхняя граница поиска
 * @param div_: делители кратности
+* @param div_n_: оличество делителей
 * @return число
 */
 unsigned short Problem_1(const unsigned short lim_, const unsigned char* div_, const unsigned char div_n_);

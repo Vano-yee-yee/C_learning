@@ -1,8 +1,8 @@
+#include <stdio.h>
 #include "euler.h"
 #include "functions.h"
 #include "cows and bulls.h"
 #include "str_func.h"
-#include <stdio.h>
 
 int main()
 {
@@ -20,6 +20,19 @@ int main()
 	printf("   cmp \"%s\" \"%s\" %d\n", str, str2, my_strcmp(str, str2));
 	printf("   str \"%s\" \"%s\" \"%s\"\n", str2, str3, my_strstr(str2, str3));
 	printf("   cpy \"%s\" \"%s\" \"%s\"\n", str, str3, my_strcpy(str, str3));
+
+	FILE* f=fopen("Source code/cows and bulls.c", "r");
+	char line[101];
+	unsigned int i=0;
+	while(i<100)
+	{
+		line[i]=' ';
+		i+=1;
+	}
+	line[i]='\0';
+	printf("symbols=%u", my_fgetline(line, f));
+	fclose(f);
+	printf(" \"%s\"\n", line);
 
 	printf("Euler function(%d)=%d\n", 81, euler_fun(81));
 	printf("Taylor e^2=%Lf\n", e_taylor(1., 0.001));

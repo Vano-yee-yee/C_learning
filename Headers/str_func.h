@@ -29,16 +29,16 @@ int my_strcmp(const char* str1_, const char* str2_);
 /**
 * @brief Находит 1-ое вхождение строки
 * @param str1_: строка поиска
-* @param str2_: подстрока
+* @param sub_str_: подстрока
 * @return строку: вхождение найдено
 * пустую строку: вхождение не найдено
 */
 char* my_strstr(const char* str1_, const char* sub_str_);
 
 /**
-* @brief Записывает в строку dest_ другую строку copy_
-* @param dest_: строка, к которой записывается copy_
-* @param copy: строка для записи в 1-ую
+* @brief Записывает в строку dest_ другую строку
+* @param dest_: строка, к которой записывается
+* @param copy_: строка для записи в 1-ую
 * @return строку
 */
 char* my_strcpy(char* dest_, const char* copy_);
@@ -49,4 +49,4 @@ char* my_strcpy(char* dest_, const char* copy_);
 * @param file_: файл считывания
 * @return число символов в строке
 */
-int my_fgetline(char* line_, const FILE* file_);
+unsigned int my_fgetline(char* line_, const FILE* file_);
