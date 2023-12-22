@@ -1,4 +1,4 @@
-#include "str_func.h"
+#include "str.h"
 
 unsigned int my_strlen(const char* str_)
 {
@@ -63,7 +63,7 @@ char* my_strstr(const char* str1_, const char* sub_str_)
 	if(i<my_strlen(sub_str_))
 		return NULL;
 	str1_-=i;
-	return str1_;
+	return (char*)str1_;
 }
 char* my_strcpy(char* dest_, const char* copy_)
 {
@@ -82,11 +82,21 @@ unsigned int my_fgetline(char* line_, const FILE* file_)
 {
 	unsigned int i=0;
 	while(*line_!='\0'
-		&& (*line_=fgetc(file_))!='\n')
+		&& (*line_=fgetc((FILE*)file_))!='\n')
 	{
 		line_+=1;
 		i+=1;
 	}
 	*line_='\0';
 	return i;
+}
+void chg_by_pair_sym(char* str_)
+{
+	while(*str_!='\0' && *(str_+1)!='\0')
+	{
+		char buf=*str_;
+		*str_=*(str_+1);
+		*(str_+1)=buf;
+		str_+=2;
+	}
 }

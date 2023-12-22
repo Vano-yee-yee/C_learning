@@ -50,3 +50,10 @@ char* my_strcpy(char* dest_, const char* copy_);
 * @return число символов в строке
 */
 unsigned int my_fgetline(char* line_, const FILE* file_);
+
+/**
+* @brief Заменяет рядом стоящие символы между собой
+* @param str_: строка
+* @return ничего
+*/
+void chg_by_pair_sym(char* str_);
