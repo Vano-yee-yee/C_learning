@@ -9,7 +9,9 @@
 	printf("Task 3 %llu\n", Problem_3(600851475143)); \
 	printf("Task 4 %u\n", Problem_4(100, 999)); \
 	printf("Task 5 %u\n", Problem_5(1, 20));
-#define STD_STR_FUNC char str[24]="Hello Word!"; \
+#define MODULE_1_ printf("Euler function(%d)=%d\n", 81, euler_fun(81)); \
+	printf("Taylor e^2=%Lf\n", e_taylor(1., 0.001));
+#define MY_STR_FUN char str[24]="Hello Word!"; \
 	char str2[13]=" Hehehe hoho"; \
 	char str3[5]="Word"; \
 	printf("strlen %u\n", my_strlen(str)); \
@@ -30,8 +32,6 @@
 	printf("symbols=%u", my_fgetline(line, f)); \
 	fclose(f); \
 	printf(" \"%s\"\n", line);
-#define MODULE_1 printf("Euler function(%d)=%d\n", 81, euler_fun(81)); \
-	printf("Taylor e^2=%Lf\n", e_taylor(1., 0.001));
 #define MODULE_2 char str4[9]="abcdefgh"; \
 	printf("\"%s\" ", str4); \
 	chg_by_pair_sym(str4); \
@@ -39,11 +39,6 @@
 
 int main()
 {
-//	EULER_PROJECT
-//	STD_STR_FUNC
-//	MODULE_1
-	MODULE_2
-
 //Быки и коровы
 //	start_game(4);
 	return 0;

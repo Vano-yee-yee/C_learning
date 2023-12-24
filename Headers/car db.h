@@ -14,13 +14,14 @@ struct car
 /**
 * @brief Инициализация данных о машинах с файла
 * @param file_: файл для чтения
-* @return массив машин
+* @return список машин
 */
-struct** car insert(const FILE* file_);
+struct car* insert(const FILE* file_);
 
 /**
 * @brief Запрос на машины, зарегистрированные более года назад и имеющие грузоподъёмность более 3-ёх тонн
 * @param db_: список машин
-* @return массив машин
+* @param amount_: количество машин
+* @return список машин
 */
-struct** car query1(const struct** car db_, const unsigned short amount_);
+struct car* query1(const struct car* db_, const unsigned short amount_);
