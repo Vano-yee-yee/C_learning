@@ -42,6 +42,7 @@ int main()
 	EULER_PROJECT
 	MODULE_1_EXTRA
 	MY_STR_FUN
+	MODULE_2
 //Быки и коровы
 	start_game(4);
 	return 0;
