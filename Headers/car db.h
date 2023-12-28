@@ -9,7 +9,7 @@ struct car
 	unsigned short lift_weight;
 	unsigned short year;
 	struct tm regist_date;
-}
+};
 
 /**
 * @brief Инициализация данных о машинах с файла

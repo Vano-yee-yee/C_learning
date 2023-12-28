@@ -3,6 +3,7 @@
 #include "str.h"
 #include "functions.h"
 #include "cows and bulls.h"
+#include "car db.h"
 
 #define EULER_PROJECT printf("Task 1 %u\n", Problem_1(1000, (char[]){3, 5}, 2)); \
 	printf("Task 2 %u\n", Problem_2(4000000)); \
@@ -35,15 +36,30 @@
 #define MODULE_2 char str4[9]="abcdefgh"; \
 	printf("\"%s\" ", str4); \
 	chg_by_pair_sym(str4); \
-	printf("\"%s\"\n", str4);
+	printf("\"%s\"\n", str4); \
+	\
+	FILE* f2=fopen("Resources/cars.txt", "r"); \
+	if(!f2) \
+	{ \
+		printf("Unable to open file\n"); \
+		return 0; \
+	} \
+		unsigned char i=0; \
+	while(i<5) \
+	{ \
+		fscanf(f2, "%[^\n]\n", NULL); \
+		i+=1; \
+	} \
+	struct car* db=insert(f2); \
+	fclose(f2);
 
 int main()
 {
-	EULER_PROJECT
-	MODULE_1_EXTRA
-	MY_STR_FUN
+//	EULER_PROJECT
+//	MODULE_1_EXTRA
+//	MY_STR_FUN
 	MODULE_2
 //Быки и коровы
-	start_game(4);
+//	start_game(4);
 	return 0;
 }
