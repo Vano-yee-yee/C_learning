@@ -3,7 +3,7 @@
 unsigned int my_strlen(const char* str_)
 {
 	unsigned int len=0;
-	while (*str_!='\0')
+	while(*str_!='\0')
 	{
 		len+=1;
 		str_+=1;
@@ -82,7 +82,7 @@ unsigned int my_fgetline(char* line_, const FILE* file_)
 {
 	unsigned int i=0;
 	while(*line_!='\0'
-		&& (*line_=fgetc((FILE*)file_))!='\n')
+		&& (*line_=fgetc(file_))!='\n')
 	{
 		line_+=1;
 		i+=1;
@@ -90,9 +90,10 @@ unsigned int my_fgetline(char* line_, const FILE* file_)
 	*line_='\0';
 	return i;
 }
-void chg_by_pair_sym(char* str_)
+void chg_by_pair(char* str_)
 {
-	while(*str_!='\0' && *(str_+1)!='\0')
+	while(*str_!='\0'
+		&& *(str_+1)!='\0')
 	{
 		char buf=*str_;
 		*str_=*(str_+1);

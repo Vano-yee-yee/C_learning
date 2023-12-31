@@ -20,4 +20,4 @@ unsigned char char_to_digit(const char c_);
 * @param dig_: количество цифр в числе [1, 10]
 * @return ничего
 */
-void start_game(const unsigned char dig_);
+void start(const unsigned char dig_);

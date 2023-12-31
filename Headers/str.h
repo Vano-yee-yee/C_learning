@@ -56,4 +56,4 @@ unsigned int my_fgetline(char* line_, const FILE* file_);
 * @param str_: строка
 * @return ничего
 */
-void chg_by_pair_sym(char* str_);
+void chg_by_pair(char* str_);

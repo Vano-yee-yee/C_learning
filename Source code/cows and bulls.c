@@ -24,9 +24,6 @@ void make_guess_num(unsigned char* res_, const unsigned char dig_)
 }
 unsigned char char_to_digit(const char c_)
 {
-//For standart encoding(s)
-//	return c-'0';
-
 //For other encodings
 	switch(c_)
 	{
@@ -54,7 +51,7 @@ unsigned char char_to_digit(const char c_)
 			return 10;
 	}
 }
-void start_game(const unsigned char dig_)
+void start(const unsigned char dig_)
 {
 	if(dig_>10
 		|| dig_==0)

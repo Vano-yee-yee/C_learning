@@ -23,9 +23,9 @@ unsigned short Problem_1(const unsigned short lim_, const unsigned char* div_, c
 }
 unsigned int Problem_2(const unsigned int lim_)
 {
-	unsigned int sum=0,
-		prev=1,
-		current=2;
+	unsigned int sum=0;
+	unsigned int prev=1;
+	unsigned int current=2;
 	while(current<lim_)
 	{
 		if(current%2==0)
@@ -41,7 +41,7 @@ unsigned long long Problem_3(long long num_)
 	if(num_==0)
 		return -1;
 	if(num_>-4
-		&&num_<4)
+		&& num_<4)
 		return num_;
 	while(i<num_)
 	{
@@ -61,7 +61,8 @@ unsigned int Problem_4(const unsigned short min_lim_, unsigned short max_lim_)
 		while(prev>min_lim_-1)
 		{
 			unsigned int buf=prev*max_lim_;
-			if(buf==get_reverse_int(buf) && buf>max)
+			if(buf==get_reverse_int(buf)
+				&& buf>max)
 				max=buf;
 			prev-=1;
 		}

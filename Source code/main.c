@@ -22,6 +22,11 @@
 	printf("   cpy \"%s\" \"%s\" \"%s\"\n", str, str3, my_strcpy(str, str3)); \
 	\
 	FILE* f=fopen("Source code/cows and bulls.c", "r"); \
+	if(!f) \
+	{ \
+		printf("Unable to open file\n"); \
+		return 0; \
+	} \
 	char line[101]; \
 	unsigned int i=0; \
 	while(i<100) \
@@ -35,23 +40,21 @@
 	printf(" \"%s\"\n", line);
 #define MODULE_2 char str4[9]="abcdefgh"; \
 	printf("\"%s\" ", str4); \
-	chg_by_pair_sym(str4); \
+	chg_by_pair(str4); \
 	printf("\"%s\"\n", str4); \
 	\
 	FILE* f2=fopen("Resources/cars.txt", "r"); \
 	if(!f2) \
 	{ \
-		printf("Unable to open file\n"); \
+		printf("Unable to open file 2\n"); \
 		return 0; \
 	} \
-		unsigned char i=0; \
-	while(i<5) \
-	{ \
-		fscanf(f2, "%[^\n]\n", NULL); \
-		i+=1; \
-	} \
-	struct car* db=insert(f2); \
-	fclose(f2);
+	fscanf(f2, "%*[^\n]\n"); \
+	const unsigned char db_size=9; \
+	struct car db[db_size]; \
+	insert(f2, db, db_size); \
+	fclose(f2); \
+	print(db, db_size);
 
 int main()
 {
@@ -60,6 +63,6 @@ int main()
 //	MY_STR_FUN
 	MODULE_2
 //Быки и коровы
-//	start_game(4);
+//	start(4);
 	return 0;
 }

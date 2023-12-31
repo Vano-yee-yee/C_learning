@@ -56,8 +56,10 @@ long double e_taylor(const long double x_, const long double prec_)
 	long double p=1.;
 	int res=1/prec_;
 	while(p!=0.)
-	{	p*=x_/i;
+	{
+		p*=x_/i;
 		res+=p/prec_;
-		i+=1;}
+		i+=1;
+	}
 	return res*prec_;
 }
