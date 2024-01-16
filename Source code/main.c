@@ -2,7 +2,6 @@
 #include "euler.h"
 #include "str.h"
 #include "functions.h"
-#include "cows and bulls.h"
 #include "car db.h"
 
 #define EULER_PROJECT printf("Task 1 %u\n", Problem_1(1000, (char[]){3, 5}, 2)); \
@@ -51,10 +50,10 @@
 	} \
 	fscanf(f2, "%*[^\n]\n"); \
 	const unsigned char db_size=9; \
-	struct car db[db_size]; \
-	insert(f2, db, db_size); \
+	struct car* restrict db=insert(f2, db_size); \
 	fclose(f2); \
-	print(db, db_size);
+	struct car* q_res=query1(db, db_size); \
+	print(q_res, db_size);
 
 int main()
 {
@@ -63,6 +62,6 @@ int main()
 //	MY_STR_FUN
 	MODULE_2
 //Быки и коровы
-//	start(4);
+//	cows_and_bulls(4);
 	return 0;
 }

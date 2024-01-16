@@ -30,3 +30,24 @@ int euler_fun(const unsigned int x_);
 * @return действительное число
 */
 long double e_taylor(const long double x_, const long double prec_);
+
+/**
+* @brief Загадывает число с различными цифрами
+* @param dig_: количество цифр в числе [1, 10]
+* @return массив цифр
+*/
+unsigned char* make_guess_num(const unsigned char dig_);
+
+/**
+* @brief Превращает символ цифры в число
+* @param c_: символ
+* @return число
+*/
+unsigned char char_to_digit(const char c_);
+
+/**
+* @brief Начинает игру "Быки и коровы"
+* @param dig_: количество цифр в числе [1, 10]
+* @return ничего
+*/
+void cows_and_bulls(const unsigned char dig_);

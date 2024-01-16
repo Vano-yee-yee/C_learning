@@ -78,7 +78,7 @@ char* my_strcpy(char* dest_, const char* copy_)
 	dest_-=i;
 	return dest_;
 }
-unsigned int my_fgetline(char* line_, const FILE* file_)
+unsigned int my_fgetline(char* line_, FILE* restrict file_)
 {
 	unsigned int i=0;
 	while(*line_!='\0'

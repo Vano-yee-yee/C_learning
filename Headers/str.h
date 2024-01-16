@@ -49,7 +49,7 @@ char* my_strcpy(char* dest_, const char* copy_);
 * @param file_: файл считывания
 * @return число символов в строке
 */
-unsigned int my_fgetline(char* line_, const FILE* file_);
+unsigned int my_fgetline(char* line_, FILE* restrict file_);
 
 /**
 * @brief Заменяет рядом стоящие символы между собой
