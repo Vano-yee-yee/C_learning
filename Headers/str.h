@@ -4,7 +4,7 @@
 /**
 * @brief Находит длину строки
 * @param str_: строка
-* @return длину строки
+* @return число
 */
 unsigned int my_strlen(const char* str_);
 
@@ -12,7 +12,7 @@ unsigned int my_strlen(const char* str_);
 * @brief Слияние строк
 * @param dest_: строка, к которой добавляется строка source_
 * @param source_: 2-ая строка
-* @return конкатенацию строк
+* @return строку
 */
 char* my_strcat(char* dest_, const char* source_);
 
@@ -31,7 +31,7 @@ int my_strcmp(const char* str1_, const char* str2_);
 * @param str1_: строка поиска
 * @param sub_str_: подстрока
 * @return строку: вхождение найдено
-* пустую строку: вхождение не найдено
+* null: вхождение не найдено
 */
 char* my_strstr(const char* str1_, const char* sub_str_);
 
@@ -49,11 +49,10 @@ char* my_strcpy(char* dest_, const char* copy_);
 * @param file_: файл считывания
 * @return число символов в строке
 */
-unsigned int my_fgetline(char* line_, FILE* restrict file_);
+unsigned int my_fgetline(char* restrict line_, FILE* restrict file_);
 
 /**
 * @brief Заменяет рядом стоящие символы между собой
 * @param str_: строка
-* @return ничего
 */
-void chg_by_pair(char* str_);
+void chg_by_pair(char* restrict str_);

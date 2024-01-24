@@ -1,7 +1,7 @@
 #pragma once
 
 /**
-* @brief Отдаёт число в обратном порядке
+* @brief Возвращает число в обратном порядке
 * @param num_: число, из которого нужно получить в обратном порядке
 * @return число
 */
@@ -13,7 +13,7 @@ unsigned int get_reverse_int(unsigned int num_);
 * @return 1: простое
 * 0: иначе
 */
-unsigned char is_simple_num(unsigned int num_);
+unsigned char is_simple_num(const unsigned int num_);
 
 /**
 * @brief Вычисляет значение функции Эйлера
@@ -34,20 +34,21 @@ long double e_taylor(const long double x_, const long double prec_);
 /**
 * @brief Загадывает число с различными цифрами
 * @param dig_: количество цифр в числе [1, 10]
-* @return массив цифр
+* @return null: dig_=0 или dig_>10
+* массив цифр: иначе
 */
 unsigned char* make_guess_num(const unsigned char dig_);
 
 /**
 * @brief Превращает символ цифры в число
 * @param c_: символ
-* @return число
+* @return число: символ является цифрой
+* 10: иначе
 */
 unsigned char char_to_digit(const char c_);
 
 /**
 * @brief Начинает игру "Быки и коровы"
 * @param dig_: количество цифр в числе [1, 10]
-* @return ничего
 */
 void cows_and_bulls(const unsigned char dig_);

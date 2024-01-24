@@ -90,7 +90,7 @@ unsigned int my_fgetline(char* line_, FILE* restrict file_)
 	*line_='\0';
 	return i;
 }
-void chg_by_pair(char* str_)
+void chg_by_pair(char* restrict str_)
 {
 	while(*str_!='\0'
 		&& *(str_+1)!='\0')

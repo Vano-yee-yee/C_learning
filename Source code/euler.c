@@ -35,7 +35,7 @@ unsigned int Problem_2(const unsigned int lim_)
 	}
 	return sum;
 }
-unsigned long long Problem_3(long long num_)
+long long Problem_3(long long num_)
 {
 	unsigned long long i=2;
 	if(num_==0)
@@ -68,7 +68,8 @@ unsigned int Problem_4(const unsigned short min_lim_, unsigned short max_lim_)
 		}
 		max_lim_-=1;
 	}
-	return max;}
+	return max;
+}
 unsigned int Problem_5(const unsigned char div_min_, const unsigned char div_max_)
 {
 	unsigned int min=div_max_;

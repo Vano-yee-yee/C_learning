@@ -13,13 +13,14 @@ unsigned int get_reverse_int(unsigned int num_)
 	}
 	return rev;
 }
-unsigned char is_simple_num(unsigned int num_)
+unsigned char is_simple_num(const unsigned int num_)
 {
 	if(num_==1)
 		return 0;
 	unsigned int i=2;
 	while(i<num_)
-	{	if(num_%i==0)
+	{
+		if(num_%i==0)
 			return 0;
 		i+=1;
 	}
@@ -55,9 +56,9 @@ int euler_fun(const unsigned int x_)
 }
 long double e_taylor(const long double x_, const long double prec_)
 {
-	unsigned int i=1;
 	long double p=1.;
 	int res=1/prec_;
+	unsigned int i=1;
 	while(p!=0.)
 	{
 		p*=x_/i;
@@ -68,10 +69,13 @@ long double e_taylor(const long double x_, const long double prec_)
 }
 unsigned char* make_guess_num(const unsigned char dig_)
 {
+	if(dig_>10
+		|| dig_==0)
+		return NULL;
 	srand(time(NULL));
-	unsigned char i=0;
 	unsigned char used_dig[10]={0};
-	unsigned char* res=(unsigned char*)malloc(dig_*sizeof(char));
+	unsigned char* res=(unsigned char*)realloc(NULL, dig_*sizeof(char));
+	unsigned char i=0;
 	while(i<dig_)
 	{
 		if(!i)
@@ -115,9 +119,9 @@ unsigned char char_to_digit(const char c_)
 			return 8;
 		case '9':
 			return 9;
-		default:
-			return 10;
 	}
+//Change
+	return 10;
 }
 void cows_and_bulls(const unsigned char dig_)
 {
@@ -125,23 +129,20 @@ void cows_and_bulls(const unsigned char dig_)
 		|| dig_==0)
 		return;
 	unsigned char* guess_num=make_guess_num(dig_);
-	printf("Computer make a number with %u different digits. Try to guess\n", dig_);
-
+	fprintf(stdout, "Computer make a number with %u different digits. Try to guess\n", dig_);
 	while(1)
 	{
 		unsigned char num[dig_];
-		scanf("%s", num);
-
+		fscanf(stdin, "%s", num);
 		unsigned char bulls=0;
 		unsigned char cows=0;
-
 		unsigned char i=0;
 		while(i<dig_)
 		{
 			num[i]=char_to_digit(num[i]);
 			if(num[i]>9)
 			{
-				printf("This is not a %d-digit number\n", dig_);
+				fprintf(stderr, "This is not a %d-digit number\n", dig_);
 				break;
 			}
 			unsigned char j=0;
@@ -159,7 +160,7 @@ void cows_and_bulls(const unsigned char dig_)
 			}
 			i+=1;
 		}
-		printf("Bulls=%u, cows=%u\n", bulls, cows);
+		fprintf(stdout, "Bulls=%u, cows=%u\n", bulls, cows);
 		if(bulls==dig_
 			&& cows==0)
 			return;

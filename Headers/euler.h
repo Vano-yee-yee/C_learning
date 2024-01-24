@@ -22,7 +22,7 @@ unsigned int Problem_2(const unsigned int lim_);
 * @return -1: num_=0
 * число: иначе
 */
-unsigned long long Problem_3(long long num_);
+long long Problem_3(long long num_);
 
 /**
 * @brief Находит наибольший палиндром, полученный произведением 2-ух чисел
