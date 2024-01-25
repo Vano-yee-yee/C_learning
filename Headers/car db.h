@@ -12,8 +12,8 @@ struct car
 	char mark[CAR_MARK_MAX+1];
 	char manufacture[CAR_MANUFACTURE_MAX+1];
 	unsigned short lift_weight;
-	unsigned short year;
-	struct tm regist_date;
+	unsigned short year_manuf;
+	time_t regist_date;
 };
 
 /**
