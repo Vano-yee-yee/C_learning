@@ -24,7 +24,7 @@
 	if(!f) \
 	{ \
 		fprintf(stderr, "Unable to open file\n"); \
-		return 0; \
+		return -1; \
 	} \
 	char line[101]; \
 	unsigned int i=0; \
@@ -44,13 +44,13 @@
 	if(!f2) \
 	{ \
 		fprintf(stderr, "Unable to open file 2\n"); \
-		return 0; \
+		return -1; \
 	} \
 	unsigned char db_size; \
 	struct car* db=insert(f2, (unsigned int*)&db_size); \
-	fprintf(stdout, "Success\n"); \
-	fclose(f2); \
-	print(db, db_size);
+	unsigned char q_res_size; \
+	struct car* q_res=query(db, db_size, (unsigned int*)&q_res_size); \
+	print(q_res, q_res_size);
 
 int main()
 {
