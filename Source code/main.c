@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include "euler.h"
-#include "str.h"
+//#include "str.h"
 #include "functions.h"
-#include "car db.h"
+//#include "car db.h"
 
 #define EULER_PROJECT fprintf(stdout, "Task 1 %u\n", Problem_1(1000, (char[]){3, 5}, 2)); \
 	fprintf(stdout, "Task 2 %u\n", Problem_2(4000000)); \
@@ -51,6 +51,8 @@
 	unsigned char q_res_size; \
 	struct car* q_res=query(db, db_size, (unsigned int*)&q_res_size); \
 	print(q_res, q_res_size);
+#define EULER_PROJECT2 fprintf(stdout, "Task 6 %d\n", Problem_6(1, 100)); \
+	fprintf(stdout, "Task 7 %u\n", Problem_7(10001));
 
 int main()
 {
@@ -58,6 +60,7 @@ int main()
 //	MODULE_1_EXTRA
 //	cows_and_bulls(4);
 //	MY_STR_FUN
-	MODULE_2
+//	MODULE_2
+	EULER_PROJECT2
 	return 0;
 }

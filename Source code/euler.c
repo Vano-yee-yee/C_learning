@@ -86,3 +86,27 @@ unsigned int Problem_5(const unsigned char div_min_, const unsigned char div_max
 	}
 	return min;
 }
+int Problem_6(unsigned char first_num_, const unsigned char last_num_)
+{
+	unsigned int sum_of_sq = 0;
+	unsigned int sum = 0;
+	while(first_num_ < last_num_ + 1)
+	{
+		sum_of_sq += first_num_ * first_num_;
+		sum += first_num_;
+		first_num_ += 1;
+	}
+	return sum_of_sq - sum * sum;
+}
+unsigned int Problem_7(const unsigned short sequence_num_)
+{
+	unsigned short i = 0;
+	unsigned int buf = 1;
+	while (i < sequence_num_)
+	{
+		buf += 1;
+		if (is_simple_num(buf))
+			i += 1;
+	}
+	return buf;
+}
