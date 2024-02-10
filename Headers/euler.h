@@ -39,3 +39,18 @@ unsigned int Problem_4(const unsigned short min_lim_, unsigned short max_lim_);
 * @return число
 */
 unsigned int Problem_5(const unsigned char div_min_, const unsigned char div_max_);
+
+/**
+* @brief Находит разность между суммой квадратов и квадратом суммы чисел
+* @param first_num_: левая граница
+* @param last_num: правая граница
+* @return число
+*/
+int Problem_6(unsigned char first_num_, const unsigned char last_num_);
+
+/**
+* @brief Находит простое число
+* @param sequence_num_: По счёту число
+* @return число
+*/
+unsigned int Problem_7(const unsigned short sequence_num_);
