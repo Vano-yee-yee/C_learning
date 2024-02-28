@@ -10,7 +10,7 @@
 	fprintf(stdout, "Task 3 %llu\n", Problem_3(600851475143)); \
 	fprintf(stdout, "Task 4 %u\n", Problem_4(100, 999)); \
 	fprintf(stdout, "Task 5 %u\n", Problem_5(1, 20)); \
-/*	part 2
+/*part 2
 */ \
 	fprintf(stdout, "Task 6 %d\n", Problem_6(1, 100)); \
 	fprintf(stdout, "Task 7 %u\n", Problem_7(10001));
