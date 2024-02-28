@@ -1,26 +1,36 @@
 #pragma once
+#include <stdio.h>
 
 struct Time
 {
-	unsigned char day; //[1; 31]
-	unsigned char month; //[1; 12]
-	unsigned char year; //[1; inf)
-	unsigned char hour; //[0; 24]
-	unsigned char minute; //[0; 60]
-	unsigned char second; //[0; 60]
+	unsigned char day; //[0; 30]
+	unsigned char month; //[0; 11]
+	unsigned short year; //[0; inf)
+	unsigned char hour; //[0; 23]
+	unsigned char minute; //[0; 59]
+	unsigned char second; //[0; 59]
 };
 
 /**
-* @brief ���������� ���������� �� ���
-* @param year_: ���
-* @return 1: ���������� ���
-* 0: �����
+* @brief Определяет високосный ли год
+* @param year_: год
+* @return 1: високосный год
+* 0: иначе
 */
-unsigned char Is_leap_year(const short year_);
+unsigned char is_leap_year(const short year_);
 
 /**
-* @brief ������� ������� �� �������
-* @param
-* @return
+* @brief Находит разницу во времени
+* @param time1_: время 1-ое
+* @param time2_: время 2-ое
+* @return время
 */
-struct Time Diff_time(const struct Time* time1_, const struct Time* time2_);
+struct Time diff_time(const struct Time* time1_, const struct Time* time2_);
+
+/**
+* @brief Выводит информацию о времи в формате d.m.y h:mi:s
+* @param stream_: поток для вывода
+* @param time_: время
+* @return ничего
+*/
+void print_time(FILE* restrict stream_, const struct Time* time_);

@@ -1,7 +1,7 @@
 #include "car db.h"
 #include <stdlib.h>
 
-void print(const struct car* db_, const unsigned int amount_)
+void print_car(FILE* restrict stream_, const struct Car* db_, const unsigned int amount_)
 {
 	unsigned int i=0;
 	while(i<amount_)
@@ -15,11 +15,11 @@ void print(const struct car* db_, const unsigned int amount_)
 		i+=1;
 	}
 }
-struct car* insert(FILE* restrict file_, unsigned int* restrict amount_)
+struct Car* insert_car(FILE* restrict file_, unsigned int* restrict amount_)
 {
 	*amount_=0;
-	struct car* res=NULL;
-	struct car buf;
+	struct Car* res=NULL;
+	struct Car buf;
 	struct tm buf_regist;
 	buf_regist.tm_sec=0;
 	buf_regist.tm_min=0;
@@ -37,17 +37,17 @@ struct car* insert(FILE* restrict file_, unsigned int* restrict amount_)
 		buf_regist.tm_mon-=1;
 		buf_regist.tm_year-=1900;
 		buf.regist_date=mktime(&buf_regist);
-		res=(struct car*)realloc(res, (*amount_)*sizeof(struct car));
+		res=(struct Car*)realloc(res, (*amount_)*sizeof(struct Car));
 		*(res+(*amount_)-1)=buf;
 	}
 //Change
 	fclose(file_);
 	return res;
 }
-struct car* query(const struct car* db_, const unsigned int amount_, unsigned int* restrict new_amount_)
+struct Car* query_car(const struct Car* db_, const unsigned int amount_, unsigned int* restrict new_amount_)
 {
 	*new_amount_=0;
-	struct car* res=NULL;
+	struct Car* res=NULL;
 
 	time_t dif_t=time(NULL);
 	struct tm buf_t=*localtime(&dif_t);
@@ -64,7 +64,7 @@ struct car* query(const struct car* db_, const unsigned int amount_, unsigned in
 			&& (*db_).lift_weight>3000)
 		{
 			*new_amount_+=1;
-			res=(struct car*)realloc(res, (*new_amount_)*sizeof(struct car));
+			res=(struct Car*)realloc(res, (*new_amount_)*sizeof(struct Car));
 			*(res+(*new_amount_)-1)=*db_;
 		}
 		db_+=1;
