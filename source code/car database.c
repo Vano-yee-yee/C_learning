@@ -39,6 +39,8 @@ Car* insert_car(FILE* restrict file_, unsigned int* restrict amount_)
 		buf_regist.tm_year-=1900;
 		buf.regist_date=mktime(&buf_regist);
 		res=(Car*)realloc(res, (*amount_)*sizeof(Car));
+		if(!res)
+			return NULL;
 		*(res+(*amount_)-1)=buf;
 	}
 //Change
@@ -56,11 +58,14 @@ void print_car(FILE* restrict stream_, const Car* db_, const unsigned int amount
 	unsigned int i=0;
 	while(i<amount_)
 	{
-		fprintf(stream_, "Mark: %s\nManufacture: %s\nLift weight: %u kg\nYear: %u\nRegistration date: %u\n\n", (*db_).mark,
+		const struct tm regist_date2=*localtime(&(*db_).regist_date);
+		fprintf(stream_, "Mark: %s\nManufacture: %s\nLift weight: %u kg\nYear: %u\nRegistration date: %u.%u.%u\n\n", (*db_).mark,
 			(*db_).manufacture,
 			(*db_).lift_weight,
 			(*db_).year_manuf,
-			(*db_).regist_date);
+			regist_date2.tm_mday,
+			regist_date2.tm_mon+1,
+			regist_date2.tm_year+1900);
 		db_+=1;
 		i+=1;
 	}
@@ -86,6 +91,8 @@ Car* query_car(const Car* db_, const unsigned int amount_, unsigned int* restric
 		{
 			*new_amount_+=1;
 			res=(Car*)realloc(res, (*new_amount_)*sizeof(Car));
+			if(!res)
+				return NULL;
 			*(res+(*new_amount_)-1)=*db_;
 		}
 		db_+=1;

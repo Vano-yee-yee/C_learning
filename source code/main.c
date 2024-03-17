@@ -21,11 +21,11 @@
 #define MY_STR_FUN char str[24]="Hello Word!"; \
 	char str2[13]=" Hehehe hoho"; \
 	char str3[5]="Word"; \
-	fprintf(stdout, "strlen %u\n", my_strlen(str)); \
+	fprintf(stdout, "strlen \"%s\" %u\n", str, my_strlen(str)); \
 	fprintf(stdout, "   cat \"%s\"\n", my_strcat(str, str2)); \
 	fprintf(stdout, "   cmp \"%s\" \"%s\" %d\n", str, str2, my_strcmp(str, str2)); \
 	fprintf(stdout, "   str \"%s\" \"%s\" \"%s\"\n", str2, str3, my_strstr(str2, str3)); \
-	fprintf(stdout, "   cpy \"%s\" \"%s\" \"%s\"\n", str, str3, my_strcpy(str, str3)); \
+	fprintf(stdout, "   cpy \"%s\"\n", my_strcpy(str, str3)); \
 	\
 	FILE* f=fopen("source code/functions.c", "r"); \
 	if(!f) \
@@ -40,7 +40,7 @@
 		line[i]=' '; \
 		i+=1; \
 	} \
-	fprintf(stdout, "symbols=%u \"%s\"\n", my_fgetline(line, f), line); \
+	fprintf(stdout, "fgetline symbols=%u \"%s\"\n", my_fgetline(line, f), line); \
 	fclose(f);
 #define MODULE_2 char str4[9]="abcdefgh"; \
 	fprintf(stdout, "\"%s\" ", str4); \
@@ -63,8 +63,19 @@
 	struct Time diff=diff_time(&t2, &t1); \
 	fprintf(stdout, "Diff "); \
 	print_time(stdout, &t2); \
+	fprintf(stdout, ", "); \
 	print_time(stdout, &t1); \
-	print_time(stdout, &diff);
+	fprintf(stdout, ", "); \
+	print_time(stdout, &diff); \
+	fprintf(stdout, "\n");
+#define BIG_NUM Big_num* bn1=create_BN("123456789"); \
+	Big_num* bn2=create_BN("987654321"); \
+	print_BN(stdout, bn1); \
+	fprintf(stdout, " "); \
+	print_BN(stdout, bn2); \
+	fprintf(stdout, "\n"); \
+	delete_BN(bn1); \
+	delete_BN(bn2);
 
 int main()
 {
@@ -74,5 +85,6 @@ int main()
 //	MY_STR_FUN
 //	MODULE_2
 	MY_TIME
+	BIG_NUM
 	return 0;
 }

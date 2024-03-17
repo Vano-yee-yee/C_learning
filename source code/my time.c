@@ -2,8 +2,9 @@
 
 unsigned char is_leap_year(const short year_)
 {
-	if (year_%400==0
-		|| (year_%4==0 && year_%100!=0))
+	if(year_%400==0
+		|| (year_%4==0
+			&& year_%100))
 		return 1;
 	else
 		return 0;
@@ -58,7 +59,7 @@ Time diff_time(const Time* time1_, const Time* time2_)
 	diff.minute=0;
 	diff.second=0;
 
-	unsigned char old=compare_time(time1_, time2_, 0);
+	const unsigned char old=compare_time(time1_, time2_, 0);
 	switch(old)
 	{
 		case 1:
@@ -117,7 +118,7 @@ Time diff_time(const Time* time1_, const Time* time2_)
 }
 void print_time(FILE* restrict stream_, const Time* time_)
 {
-	fprintf(stream_, "%u.%u.%u %u:%u:%u\n", (*time_).day+1,
+	fprintf(stream_, "%u.%u.%u %u:%u:%u", (*time_).day+1,
 		(*time_).month+1,
 		(*time_).year+1,
 		(*time_).hour,

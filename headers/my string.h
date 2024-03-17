@@ -14,7 +14,7 @@ unsigned int my_strlen(const char* str_);
 * @param source_: 2-ая строка
 * @return строку
 */
-char* my_strcat(char* dest_, const char* source_);
+char* my_strcat(char* restrict dest_, const char* source_);
 
 /**
 * @brief Сравнение строк
@@ -41,7 +41,7 @@ char* my_strstr(const char* str1_, const char* sub_str_);
 * @param copy_: строка для записи в 1-ую
 * @return строку
 */
-char* my_strcpy(char* dest_, const char* copy_);
+char* my_strcpy(char* restrict dest_, const char* copy_);
 
 /**
 * @brief Считывает строку в файле
@@ -56,3 +56,11 @@ unsigned int my_fgetline(char* restrict line_, FILE* restrict file_);
 * @param str_: строка
 */
 void chg_by_pair(char* restrict str_);
+
+/**
+* @brief Проверяет строку на число
+* @param str_: строка
+* @return 1: строка является числом
+* 0: иначе
+*/
+unsigned char is_str_int(const char* str_);

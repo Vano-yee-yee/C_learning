@@ -25,7 +25,7 @@ unsigned char is_simple_num(const unsigned int num_)
 }
 int euler_fun(const unsigned int x_)
 {
-	if(x_==0)
+	if(!x_)
 		return -1;
 	if(is_simple_num(x_))
 		return x_-1;

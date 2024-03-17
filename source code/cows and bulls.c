@@ -4,14 +4,17 @@
 #include <stdio.h>
 #include "functions.h"
 
-unsigned char* make_guess_num(const unsigned char dig_)
+static unsigned char* make_guess_num(const unsigned char dig_)
 {
 	if(dig_>10
-		|| dig_==0)
+		|| !dig_)
 		return NULL;
 	srand(time(NULL));
 	unsigned char used_dig[10]={0};
 	unsigned char* res=(unsigned char*)realloc(NULL, dig_*sizeof(char));
+	if(!res)
+		return NULL;
+
 	unsigned char i=0;
 	while(i<dig_)
 	{
@@ -29,12 +32,11 @@ unsigned char* make_guess_num(const unsigned char dig_)
 	res-=i;
 	return res;
 }
-void cows_and_bulls(const unsigned char dig_)
+void start_CaB(const unsigned char dig_)
 {
-	if(dig_>10
-		|| dig_==0)
+	const unsigned char* guess_num=make_guess_num(dig_);
+	if(!guess_num)
 		return;
-	unsigned char* guess_num=make_guess_num(dig_);
 	fprintf(stdout, "Computer make a number with %u different digits. Try to guess\n", dig_);
 	while(1)
 	{
