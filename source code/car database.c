@@ -43,7 +43,7 @@ Car* insert_car(FILE* restrict file_, unsigned int* restrict amount_)
 			return NULL;
 		*(res+(*amount_)-1)=buf;
 	}
-//Change
+/*Change*/
 	fclose(file_);
 	return res;
 }

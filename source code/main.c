@@ -12,8 +12,7 @@
 	fprintf(stdout, "Task 3 %llu\n", Problem_3(600851475143)); \
 	fprintf(stdout, "Task 4 %u\n", Problem_4(100, 999)); \
 	fprintf(stdout, "Task 5 %u\n", Problem_5(1, 20)); \
-/*part 2
-*/ \
+/*part 2*/ \
 	fprintf(stdout, "Task 6 %d\n", Problem_6(1, 100)); \
 	fprintf(stdout, "Task 7 %u\n", Problem_7(10001));
 #define MODULE_1_EXTRA fprintf(stdout, "Euler function(%d)=%d\n", 81, euler_fun(81)); \
@@ -54,19 +53,19 @@
 		return -1; \
 	} \
 	unsigned char db_size; \
-	struct Car* db=insert_car(f2, (unsigned int*)&db_size); \
+	Car* db=insert_car(f2, (unsigned int*)&db_size); \
 	unsigned char q_res_size; \
-	struct Car* q_res=query_car(db, db_size, (unsigned int*)&q_res_size); \
+	Car* q_res=query_car(db, db_size, (unsigned int*)&q_res_size); \
 	print_car(stdout, q_res, q_res_size);
-#define MY_TIME struct Time t1={0, 0, 2023, 14, 45, 19}; \
-	struct Time t2={23, 10, 2001, 12, 12, 58}; \
-	struct Time diff=diff_time(&t2, &t1); \
+#define MY_TIME Time t1={0, 0, 2023, 14, 45, 19}; \
+	Time t2={23, 10, 2001, 12, 12, 58}; \
+	Time* diff=diff_time(&t2, &t1); \
 	fprintf(stdout, "Diff "); \
 	print_time(stdout, &t2); \
 	fprintf(stdout, ", "); \
 	print_time(stdout, &t1); \
 	fprintf(stdout, ", "); \
-	print_time(stdout, &diff); \
+	print_time(stdout, diff); \
 	fprintf(stdout, "\n");
 #define BIG_NUM Big_num* bn1=create_BN("123456789"); \
 	Big_num* bn2=create_BN("987654321"); \
@@ -79,12 +78,13 @@
 
 int main()
 {
-//	EULER_PROJECT
-//	MODULE_1_EXTRA
-//	start_CaB(4);
-//	MY_STR_FUN
-//	MODULE_2
+/*	EULER_PROJECT
+	MODULE_1_EXTRA
+	start_CaB(4);
+	MY_STR_FUN
+	MODULE_2
+*/
 	MY_TIME
-	BIG_NUM
+//	BIG_NUM
 	return 0;
 }

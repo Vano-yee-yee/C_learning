@@ -3,12 +3,12 @@
 
 typedef struct Time
 {
-	unsigned char day;		//[0; 30]
-	unsigned char month;	//[0; 11]
-	unsigned short year;	//[0; inf)
-	unsigned char hour;		//[0; 23]
-	unsigned char minute;	//[0; 59]
-	unsigned char second;	//[0; 59]
+	unsigned char day;
+	unsigned char month;
+	unsigned short year;
+	unsigned char hour;
+	unsigned char minute;
+	unsigned char second;
 } Time;
 
 /**
@@ -25,7 +25,7 @@ unsigned char is_leap_year(const short year_);
 * @param time2_: время 2-ое
 * @return время
 */
-Time diff_time(const Time* time1_, const Time* time2_);
+Time* diff_time(const Time* time1_, const Time* time2_);
 
 /**
 * @brief Выводит информацию о времи в формате d.m.y h:mi:s

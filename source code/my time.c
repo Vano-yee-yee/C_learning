@@ -1,4 +1,5 @@
 #include <my time.h>
+#include <stdlib.h>
 
 unsigned char is_leap_year(const short year_)
 {
@@ -48,72 +49,66 @@ static unsigned char compare_time(const Time* time1_, const Time* time2_, unsign
 		return 1;
 	return 2;
 }
-Time diff_time(const Time* time1_, const Time* time2_)
+Time* diff_time(const Time* time1_, const Time* time2_)
 {
-	Time diff;
-	Time* min;
-	diff.year=0;
-	diff.month=0;
-	diff.day=0;
-	diff.hour=0;
-	diff.minute=0;
-	diff.second=0;
-
+	Time* diff=realloc(NULL, sizeof(Time));
+	Time* min=realloc(NULL, sizeof(Time));
 	const unsigned char old=compare_time(time1_, time2_, 0);
 	switch(old)
 	{
 		case 1:
-			diff=*time1_;
-			min=(Time*)time2_;
+			*diff=*time1_;
+			*min=*time2_;
 			break;
 		case 2:
-			diff=*time2_;
-			min=(Time*)time1_;
+			*diff=*time2_;
+			*min=*time1_;
 			break;
 	}
-//Not for all times!!
-	if(diff.second<(*min).second)
+/*Not for all times!!*/
+	if((*diff).second<(*min).second)
 	{
-		diff.second+=60;
-		diff.minute-=1;
+		(*diff).second+=60;
+		(*diff).minute-=1; /*May go out of range*/
 	}
-	diff.second-=(*min).second;
-	if(diff.minute<(*min).minute)
+	(*diff).second-=(*min).second;
+	if((*diff).minute<(*min).minute)
 	{
-		diff.minute+=60;
-		diff.hour-=1;
+		(*diff).minute+=60;
+		(*diff).hour-=1; /*May go out of range*/
 	}
-	diff.minute-=(*min).minute;
-	if(diff.hour<(*min).hour)
+	(*diff).minute-=(*min).minute;
+	if((*diff).hour<(*min).hour)
 	{
-		diff.hour+=24;
-		diff.day-=1;
+		(*diff).hour+=24;
+		(*diff).day-=1; /*May go out of range*/
 	}
-	diff.hour-=(*min).hour;
-	if(diff.day<(*min).day)
+	(*diff).hour-=(*min).hour;
+	if((*diff).day<(*min).day)
 	{
-		diff.month-=1;
-		if(diff.month==1)
+		(*diff).month-=1; /*May go out of range*/
+		if((*diff).month==1)
 		{
-			if(is_leap_year(diff.year+1))
-				diff.day+=29;
+			if(is_leap_year((*diff).year+1))
+				(*diff).day+=29;
 			else
-				diff.day+=28;
+				(*diff).day+=28;
 		}
-		else if(diff.month==7
-			|| diff.month%2==0)
-			diff.day+=31;
+		else if((*diff).month==7
+			|| (*diff).month%2==0)
+			(*diff).day+=31;
 		else
-			diff.day+=30;
+			(*diff).day+=30;
 	}
-	diff.day-=(*min).day;
-	if(diff.month<(*min).month)
+	(*diff).day-=(*min).day;
+	if((*diff).month<(*min).month)
 	{
-		diff.month+=12;
-		diff.year-=1;
+		(*diff).month+=12;
+		(*diff).year-=1; /*May go out of range*/
 	}
-	diff.month-=(*min).month;
-	diff.year-=(*min).year;
+	(*diff).month-=(*min).month;
+	(*diff).year-=(*min).year;
+	min=realloc(min, 0);
 	return diff;
 }
 void print_time(FILE* restrict stream_, const Time* time_)
