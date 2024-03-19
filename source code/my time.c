@@ -81,28 +81,27 @@ Time* diff_time(const Time* time1_, const Time* time2_)
 			diff=realloc(diff, 0);
 			return NULL;
 	}
-/*Not for all times!!*/
 	if((*diff).second<(*min).second)
 	{
 		(*diff).second+=60;
-		(*diff).minute-=1; /*May go out of range*/
+		(*diff).minute-=1;
 	}
 	(*diff).second-=(*min).second;
 	if((*diff).minute<(*min).minute)
 	{
 		(*diff).minute+=60;
-		(*diff).hour-=1; /*May go out of range*/
+		(*diff).hour-=1;
 	}
 	(*diff).minute-=(*min).minute;
 	if((*diff).hour<(*min).hour)
 	{
 		(*diff).hour+=24;
-		(*diff).day-=1; /*May go out of range*/
+		(*diff).day-=1; 
 	}
 	(*diff).hour-=(*min).hour;
 	if((*diff).day<(*min).day)
 	{
-		(*diff).month-=1; /*May go out of range*/
+		(*diff).month-=1;
 		if((*diff).month==1)
 		{
 			if(is_leap_year((*diff).year+1))
@@ -120,7 +119,7 @@ Time* diff_time(const Time* time1_, const Time* time2_)
 	if((*diff).month<(*min).month)
 	{
 		(*diff).month+=12;
-		(*diff).year-=1; /*May go out of range*/
+		(*diff).year-=1;
 	}
 	(*diff).month-=(*min).month;
 	(*diff).year-=(*min).year;
