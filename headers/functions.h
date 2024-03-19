@@ -1,5 +1,5 @@
-#pragma once
-
+#if !defined(FUNCTIONS_H)
+#define FUNCTIONS_H
 /**
 * @brief Возвращает число в обратном порядке
 * @param num_: число, из которого нужно получить в обратном порядке
@@ -38,3 +38,4 @@ long double e_taylor(const long double x_, const long double prec_);
 * 10: иначе
 */
 unsigned char char_to_digit(const char c_);
+#endif

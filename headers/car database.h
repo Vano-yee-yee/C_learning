@@ -1,4 +1,5 @@
-#pragma once
+#if !defined(CAR_DATABASE_H)
+#define CAR_DATABASE_H
 #include <stdio.h>
 
 typedef struct Car Car;
@@ -27,3 +28,4 @@ Car* insert_car(FILE* restrict file_, unsigned int* restrict amount_);
 * @return список машин
 */
 Car* query_car(const Car* db_, const unsigned int amount_, unsigned int* restrict new_amount_);
+#endif

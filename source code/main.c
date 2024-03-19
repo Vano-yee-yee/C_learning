@@ -85,6 +85,6 @@ int main()
 	MODULE_2
 */
 	MY_TIME
-//	BIG_NUM
+	BIG_NUM
 	return 0;
 }

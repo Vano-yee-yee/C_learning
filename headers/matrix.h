@@ -1,5 +1,5 @@
-#pragma once
-
+#if !defined(MATRIX_H)
+#define MATRIX_H
 /**
 * @brief Вычисляет определитель матрицы
 * @param matrix_: квадратная матрица
@@ -23,3 +23,4 @@ double* reverse_matrix(const double* matrix_, const unsigned int n_);
 * @return массив значений неизвестных (слева-направо)
 */
 double* Kramer_LES(const double* coefficients_, const unsigned int unknowns_amount_);
+#endif

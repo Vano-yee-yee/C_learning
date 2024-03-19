@@ -1,4 +1,5 @@
-#pragma once
+#if !defined(BIG_NUMBER_H)
+#define BIG_NUMBER_H
 #include <stdio.h>
 
 typedef struct Big_num Big_num;
@@ -54,3 +55,4 @@ Big_num* multiplication(const Big_num* num1_, const Big_num* num2_);
 * @return большое число
 */
 Big_num* division(const Big_num* num1_, const Big_num* num2_);
+#endif

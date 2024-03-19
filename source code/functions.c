@@ -66,7 +66,6 @@ long double e_taylor(const long double x_, const long double prec_)
 }
 unsigned char char_to_digit(const char c_)
 {
-/*For other encodings*/
 	switch(c_)
 	{
 		case '0':

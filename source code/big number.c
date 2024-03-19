@@ -31,7 +31,7 @@ Big_num* create_BN(const char* str_)
 	(*res).digits=(unsigned char*)realloc(NULL, (*res).size*sizeof(unsigned char));
 	if(!(*res).digits)
 	{
-		res=realloc(res, 0);
+		res=(Big_num*)realloc(res, 0);
 		return NULL;
 	}
 	size_t i=0;
@@ -44,8 +44,8 @@ Big_num* create_BN(const char* str_)
 }
 void delete_BN(Big_num* restrict num_)
 {
-	(*num_).digits=realloc((*num_).digits, 0);
-	num_=realloc(num_, 0);
+	(*num_).digits=(unsigned char*)realloc((*num_).digits, 0);
+	num_=(Big_num*)realloc(num_, 0);
 }
 void print_BN(FILE* restrict stream_, const Big_num* num_)
 {

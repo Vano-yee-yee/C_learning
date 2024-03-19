@@ -10,11 +10,11 @@ unsigned char is_leap_year(const short year_)
 	else
 		return 0;
 }
-static unsigned char compare_time(const Time* time1_, const Time* time2_, unsigned char i)
+static unsigned char compare_time(const Time* time1_, const Time* time2_, const unsigned char i_)
 {
 	unsigned int time1_v;
 	unsigned int time2_v;
-	switch(i)
+	switch(i_)
 	{
 		case 0:
 			time1_v=(*time1_).year;
@@ -44,7 +44,7 @@ static unsigned char compare_time(const Time* time1_, const Time* time2_, unsign
 			return 0;
 	}
 	if(time1_v==time2_v)
-		return compare_time(time1_, time2_, i+1);
+		return compare_time(time1_, time2_, i_+1);
 	if(time1_v>time2_v)
 		return 1;
 	return 2;
@@ -52,7 +52,11 @@ static unsigned char compare_time(const Time* time1_, const Time* time2_, unsign
 Time* diff_time(const Time* time1_, const Time* time2_)
 {
 	Time* diff=realloc(NULL, sizeof(Time));
+	if(!diff)
+		return NULL;
 	Time* min=realloc(NULL, sizeof(Time));
+	if(!min)
+		return NULL;
 	const unsigned char old=compare_time(time1_, time2_, 0);
 	switch(old)
 	{
@@ -64,6 +68,18 @@ Time* diff_time(const Time* time1_, const Time* time2_)
 			*diff=*time2_;
 			*min=*time1_;
 			break;
+		default:
+			min=realloc(min, 0);
+/*			(*diff).day=0;
+			(*diff).month=0;
+			(*diff).year=0;
+			(*diff).hour=0;
+			(*diff).minute=0;
+			(*diff).second=0;
+			return diff;
+*/
+			diff=realloc(diff, 0);
+			return NULL;
 	}
 /*Not for all times!!*/
 	if((*diff).second<(*min).second)

@@ -1,4 +1,5 @@
-#pragma once
+#if !defined(MY_STRING_H)
+#define MY_STRING_H
 #include <stdio.h>
 
 /**
@@ -64,3 +65,4 @@ void chg_by_pair(char* restrict str_);
 * 0: иначе
 */
 unsigned char is_str_int(const char* str_);
+#endif
