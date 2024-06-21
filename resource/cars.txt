@@ -1,0 +1,10 @@
+Марка автомобиля	Производитель	Грузоподъёмность	Год выпуска	Дата регистрации
+КамАЗ 65801	ПАО Камаз	33000	2021	24.12.2022
+Iveco Eurocargo	Industrial vechicles corporation	10000	2016	5.1.2016
+Volvo FL	Volvo personvagnar AB	8600	2018	16.4.2020
+Hyundai HD78	Hyundai motor company	5000	2016	17.6.2022
+JAC N80	Anhui jianghuai automobile co.	4000	2021	12.6.2023
+Hyundai HD120	Hyundai motor company	7000	2015	8.11.2017
+Shacman SX3318	Shaanxi heavy duty automobile co.	41000	2022	4.1.2023
+КамАЗ 6580	ПАО Камаз	24700	2020	7.10.2020
+ГАЗ ГАЗон next	Горьковский автомобильный завод	4700	2020	25.8.2022
